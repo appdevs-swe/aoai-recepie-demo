@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run infra-containers",
+            "type": "docker-compose",
+            "dockerCompose": {
+                "up": {
+                    "detached": true,
+                    "build": true
+                },
+                "files": [
+                    "${workspaceFolder}/docker-compose-infra.yml"
+                ]
+            }
+        },
+        {
+            "label": "Run all containers",
+            "type": "docker-compose",
+            "dockerCompose": {
+                "up": {
+                    "detached": true,
+                    "build": true
+                },
+                "files": [
+                    "${workspaceFolder}/docker-compose.yml"
+                ]
+            }
+        },
+        {
+            "label": "Stop all containers",
+            "type": "docker-compose",
+            "dockerCompose": {
+                "down": {}
+            }
+        }
+    ]
+}
